@@ -1,0 +1,37 @@
+##Usage
+
+All methods return TRUE (or array with requested data) on success and FALSE on failure.
+
+Method getErrorMessage() will return last error message from Amazon.
+
+
+$ses = new Zend_Service_Amazon_Route53('accessKey', 'secretKey');
+
+##Available methods
+
+$ses->listHostedZones($marker, $maxItems); // $maxItems parameter is optional
+$ses->createHostedZone($name, $comment); // $comment parameter is optional
+$ses->deleteHostedZone($zone);
+$ses->getHostedZone($zone);
+
+$recordSet = array(
+	array(
+		'Name' => 'someName',
+		'Action' => 'CREATE',
+		'Type' => 'A',
+		'TTL' => 300,
+		'Value' => '192.168.1.1'
+	),
+	array(
+		'Name' => 'someName',
+		'Action' => 'CREATE',
+		'Type' => 'A',
+		'TTL' => 300,
+		'Value' => '192.168.1.2'
+	)
+);
+$ses->changeResourceRecordSets($zone, $recordSet); // $comment parameter is optional
+
+$ses->listResourceRecordSets($zone, $name, $type, $maxitems); // $name, $type, $maxitems parameters are optional
+
+$ses->getChange($changeId);
