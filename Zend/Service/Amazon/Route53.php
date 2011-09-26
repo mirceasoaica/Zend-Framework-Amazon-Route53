@@ -1,6 +1,6 @@
 <?php
 
-class App_Amazon_Route53 extends Zend_Service_Amazon_Abstract
+class Zend_Service_Amazon_Route53 extends Zend_Service_Amazon_Abstract
 {
 	protected $_endpoint;
 	const ROUTE53_ENDPOINT = 'route53.amazonaws.com';
